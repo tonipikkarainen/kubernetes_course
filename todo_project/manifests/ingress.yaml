@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: dwk-material-ingress
+  annotations:
+    traefik.ingress.kubernetes.io/rule-type: "PathPrefixStrip"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            backend:
+              serviceName: todo-project-svc
+              servicePort: 2346
+          - path: /pingpong # This ingress routes messages to two different services
+            backend:
+              serviceName: pong-svc
+              servicePort: 2347 # These are defined in service.yamls
