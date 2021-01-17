@@ -12,6 +12,17 @@ spec:
       labels:
         app: uuidgen
     spec:
+      volumes: # Define volume
+        - name: shared-file
+          emptyDir: {}
       containers:
-        - name: uuidgen
-          image: tonipikkarainen/uuidgen
+        - name: uuidgen-write
+          image: tonipikkarainen/uuidgen-write
+          volumeMounts: # Mount volume
+            - name: shared-file
+              mountPath: /tmp/src/app/files
+        - name: uuidgen-read
+          image: tonipikkarainen/uuidgen-read
+          volumeMounts: # Mount volume
+            - name: shared-file
+              mountPath: /tmp/src/app/files

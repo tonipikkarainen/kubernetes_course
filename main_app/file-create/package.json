@@ -1,5 +1,5 @@
 {
-  "name": "main_app",
+  "name": "file-create",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
+    "bluebird": "^3.7.2",
     "uuid": "^8.3.2"
   }
 }
